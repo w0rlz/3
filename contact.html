@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Contact Me</title>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="programming.html">Code</a>
+        <a href="photography.html">Photos</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>Send a Message</h2>
+            <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+                <input type="email" name="email" placeholder="Your Email" required style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #dadce0; border-radius:8px;">
+                <textarea name="message" placeholder="What's on your mind?" required style="width:100%; padding:12px; height:150px; border:1px solid #dadce0; border-radius:8px; margin-bottom:10px;"></textarea>
+                <button type="submit" class="btn">Send Transmission ✈️</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
