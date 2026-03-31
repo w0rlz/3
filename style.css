@@ -1,1 +1,88 @@
+:root {
+    --primary: #1a73e8; /* Gmail Blue */
+    --accent: #e1306c; /* Instagram Pink */
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --text: #202124;
+    --border: #dadce0;
+}
 
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding-top: 70px;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    z-index: 100;
+}
+
+nav a {
+    text-decoration: none;
+    color: #5f6368;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+nav a:hover, nav a.active {
+    background: #f1f3f4;
+    color: var(--primary);
+}
+
+/* Containers */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Instagram Grid */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.photo-item img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.photo-item img:hover { transform: scale(1.02); }
+
+/* Buttons */
+.btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 24px;
+    cursor: pointer;
+    font-weight: 600;
+}
