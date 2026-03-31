@@ -1,33 +1,77 @@
 # admin/config.yml
+
+# 1. Media Configuration
+# This is where your photos and zip files will be saved in GitHub
+media_folder: "uploads"
+public_folder: "/uploads"
+
+# 2. Content Collections
 content:
+  # --- STATIC PAGES (Home, About, Contact) ---
   - name: pages
-    label: Pages
+    label: Main Pages
     type: collection
-    path: /
     files:
       - name: home
         label: Home Page
         file: index.html
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: welcome_text, label: Welcome Message, type: rich-text }
+
       - name: about
         label: About Me
         file: about.html
+        fields:
+          - { name: profile_image, label: Profile Picture, type: image }
+          - { name: bio, label: Biography, type: rich-text }
+          - { name: skills, label: Skills List, type: list, field: { type: string } }
+
+      - name: contact
+        label: Contact Page
+        file: contact.html
+        fields:
+          - { name: contact_description, label: Intro Text, type: text }
+
+  # --- BLOG SECTION ---
+  # Every time you click "New," it creates a new file in the /blog/ folder
   - name: blog
     label: Blog Posts
     type: collection
-    path: blog/
-    format: html
+    path: "blog/"
+    extension: "html"
+    format: "frontmatter"
     fields:
-      - { name: title, label: Title, type: string }
+      - { name: title, label: Post Title, type: string }
       - { name: date, label: Date, type: datetime }
+      - { name: thumbnail, label: Post Image, type: image }
       - { name: body, label: Content, type: rich-text }
+
+  # --- PROGRAMMING SECTION ---
+  # Manage your code projects and zip downloads here
   - name: programming
     label: Programming Projects
     file: programming.html
     fields:
       - name: projects
-        label: Projects
+        label: Project List
         type: list
         fields:
           - { name: name, label: Project Name, type: string }
-          - { name: file, label: Upload Downloadable File, type: file }
-          - { name: desc, label: Description, type: text }
+          - { name: description, label: Description, type: text }
+          - { name: download_file, label: Upload File (.zip/.exe), type: file }
+          - { name: status, label: Project Status, type: select, options: ["Live", "Beta", "Archived"] }
+
+  # --- PHOTOGRAPHY SECTION ---
+  # Your Instagram-style gallery
+  - name: photography
+    label: Photography Gallery
+    file: photography.html
+    fields:
+      - name: gallery
+        label: Photo Feed
+        type: list
+        fields:
+          - { name: image, label: Upload Image, type: image }
+          - { name: title, label: Photo Title, type: string }
+          - { name: location, label: Location, type: string }
