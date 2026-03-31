@@ -1,0 +1,33 @@
+# admin/config.yml
+content:
+  - name: pages
+    label: Pages
+    type: collection
+    path: /
+    files:
+      - name: home
+        label: Home Page
+        file: index.html
+      - name: about
+        label: About Me
+        file: about.html
+  - name: blog
+    label: Blog Posts
+    type: collection
+    path: blog/
+    format: html
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: date, label: Date, type: datetime }
+      - { name: body, label: Content, type: rich-text }
+  - name: programming
+    label: Programming Projects
+    file: programming.html
+    fields:
+      - name: projects
+        label: Projects
+        type: list
+        fields:
+          - { name: name, label: Project Name, type: string }
+          - { name: file, label: Upload Downloadable File, type: file }
+          - { name: desc, label: Description, type: text }
